@@ -8,6 +8,17 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { ShoplistService } from '../services/shoplist.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { AuthenticationService } from '../services/authentication.service';
+import { IonicStorageModule } from '@ionic/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { MoneyService } from '../services/money.service';
+import { TodolistService } from '../services/todo.service';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,12 +26,21 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    IonicStorageModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ShoplistService,
+    AuthenticationService,
+    MoneyService,
+    TodolistService
   ],
   bootstrap: [AppComponent]
 })

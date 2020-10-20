@@ -1,16 +1,66 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Home  
+      </ion-title>
+    </ion-toolbar>
+ </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
-</ion-content>
+  <h2>Credits</h2>
+<ion-list>
+  <ng-container *ngFor="let moneyitems of moneyItems$ | async">
+        <ion-item>
+          <ion-label align-self-start>Food £</ion-label>
+          <ion-input type="text" [(ngModel)]="moneyitems.foodmoney"></ion-input>
+          <ion-label>Petrol £</ion-label>
+          <ion-input type="text" [(ngModel)]="moneyitems.petrolmoney"></ion-input>             
+        </ion-item>
+
+  <h2>Debits</h2>
+        <ion-item>
+          <ion-label >San CC £</ion-label>
+          <ion-input type="text" [(ngModel)]="moneyitems.sancc"></ion-input>
+          <ion-label>Tesco CC £</ion-label>
+          <ion-input type="text" [(ngModel)]="moneyitems.tescocc"></ion-input>              
+        </ion-item>
+
+  <h2>Savings</h2>
+        <ion-item>
+          <ion-label>Car1 £</ion-label>
+          <ion-input type="text" [(ngModel)]="moneyitems.car1"></ion-input>
+          <ion-label>Car2 £</ion-label>
+          <ion-input type="text" [(ngModel)]="moneyitems.car2"></ion-input>    
+        </ion-item>
+        <ion-item>          
+            <ion-label>Xmas £</ion-label>
+            <ion-input type="text" [(ngModel)]="moneyitems.xmas"></ion-input>
+            <ion-label>Lewis Bday £</ion-label>
+            <ion-input type="text" [(ngModel)]="moneyitems.lewisbday"></ion-input>  
+          </ion-item>
+          <ion-item>            
+              <ion-label>Zoo £</ion-label>
+              <ion-input type="text" [(ngModel)]="moneyitems.zoo"></ion-input>
+              <ion-label>Holiday £</ion-label>
+              <ion-input type="text" [(ngModel)]="moneyitems.holiday"></ion-input>              
+            </ion-item>
+            <ion-item>
+                <ion-label>Ser Chg £</ion-label>
+                <ion-input type="text" [(ngModel)]="moneyitems.servicecharge"></ion-input>
+                <ion-label>House Ins £</ion-label>
+                <ion-input type="text" [(ngModel)]="moneyitems.houseins"></ion-input>  
+              </ion-item>
+              <ion-item>
+                <ion-label>Fam Save £</ion-label>
+                <ion-input type="text" [(ngModel)]="moneyitems.famsave"></ion-input>  
+                <ion-label>Dudes £</ion-label>
+                <ion-input type="text" [(ngModel)]="moneyitems.dudemoney"></ion-input>              
+              </ion-item>
+    <ion-button (click)="updatemoney(moneyitems)" expand="block">Submit</ion-button>
+  </ng-container>
+</ion-list>  
+    </ion-content>
+    

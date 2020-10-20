@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+    <ion-title>Add Item to List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+     <ion-item>
+        <ion-label floating>Category</ion-label>
+            <ion-input [(ngModel)]="shoppingitems.category"></ion-input> 
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Item</ion-label>
+            <ion-input [(ngModel)]="shoppingitems.item"></ion-input> 
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Quantity</ion-label>
+            <ion-input [(ngModel)]="shoppingitems.quantity"></ion-input> 
+    </ion-item>
+
+    <ion-button (click)="addshoplist(shoppingitems)" expand="block">Add item</ion-button>
+
+    <ion-item>
+        <ion-label floating>Category</ion-label>
+            <ion-input [(ngModel)]="todoitems.category"></ion-input> 
+    </ion-item>
+    <ion-item>
+        <ion-label floating>Action</ion-label>
+            <ion-input [(ngModel)]="todoitems.action"></ion-input> 
+    </ion-item>
+
+    <ion-button (click)="addtodolist(todoitems)" expand="block">Add To Do</ion-button>
+</ion-content>

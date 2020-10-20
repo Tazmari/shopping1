@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      <ion-title>To Do List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+      <ion-item-sliding *ngFor="let todoitems of todoItems$ | async">
+          <ion-item>
+              <ion-label>{{ todoitems.category }} {{ todoitems.action }}</ion-label>
+              <ion-icon name="trash" slot="end" (click)="removetodoItems(todoitems)" color="danger">
+              </ion-icon>
+            </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+       <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+          <ion-fab-button routerLink="/additem" routerDirection="forward">
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+  </ion-content>
+  
+  
